@@ -3,25 +3,19 @@
 
 const json = '[{"name": "John", "age": 25, "city": "New York"}, {"name": "Jane", "age": 30, "city": "Los Angeles"}, {"name": "Jack", "age": 40, "city": "San Francisco"}]';
 
-function usersObj(data) {
-    this.data = data;
-};
+function parseFromJson(json) {
+    let list = JSON.parse(json);
+    console.log(list);
+    let result = {list: []};
 
-console.log(usersObj);
-
-function createUsersList(json) {
-    const list = {};
-    const dataList = JSON.parse(json);
-
-    dataList.forEach((data) => {
-        list[data.name] = new usersObj(data);
+    list.forEach((item) => {
+        result.list.push(item);
     })
 
-    return list;
-};
+    return result;
+}
 
-// Создаем пустой объект. Создаем функцию для добавления списка пользователей в пустой объект. Создаем пустой список. Парсим JSON объект. 
-// С помощью forEach добавляем каждый объект в пустой объект. Возвращаем новый список пользователей в виде объекта
+// Создаю ф-цию parseFromJson, которая принимает json. Полученный json парсим с помощью метода JSON.parse() и результат сохранияю в переменную.
+// Создаю пустой оъект result. С помощью метода forEach каждый элемент из списка добавляю в путой объект result
 
-const usersList = createUsersList(json);
-console.log(usersList);
+console.log(parseFromJson(json));
