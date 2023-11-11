@@ -22,7 +22,7 @@ const functions = [
     },
 ];
 
-function callSequentially(functions) {
+function callFunctions(functions) {
     functions.forEach((fn) => {
         fn();
     })
@@ -30,4 +30,4 @@ function callSequentially(functions) {
 
 // Берем массив функций, перебираем методом forEach, вызываем каждую функцию из массива по порядку
 
-callSequentially(functions);
+callFunctions(functions);

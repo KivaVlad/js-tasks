@@ -5,7 +5,6 @@ const json = '[{"name": "John", "age": 25, "city": "New York"}, {"name": "Jane",
 
 function parseFromJson(json) {
     let list = JSON.parse(json);
-    console.log(list);
     let result = {list: []};
 
     list.forEach((item) => {
