@@ -16,4 +16,4 @@ function isPalindrome(str){
 console.log(isPalindrome('аргентина манит негра')); // true
 console.log(isPalindrome('топот'));  // true
 console.log(isPalindrome('привет'));  // false
-console.log(isPalindrome('ШаЛаш'));  // true
+console.log(isPalindrome('Шалаш'));  // true
