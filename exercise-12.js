@@ -5,18 +5,32 @@ const book = {
     title: 'Название книги',
     author: 'Автор',
     year: null,
+
+    // метод изменения названия
+    setTitle: function(newTitle) {
+        this.title = newTitle;
+    },
+
+    // метод изменения автора
+    setAuthor: function(newAuthor) {
+        this.author = newAuthor;
+    },
+
+    // метод изменения год издания
+    setYear: function(newYear) {
+        this.year = newYear;
+    }
 }
 
-book.title = 'Цветы для Элджертона';
-book.author = 'Дэниел Киз';
-book.year = 1966;
+book.setTitle('Цветы для Элджертона');
+book.setAuthor('Дэниел Киз');
+book.setYear(1966);
 
 const {title, author, year} = book;
 
-console.log(book);
 console.log(title, author, year);
-console.log(book.title, book.author, book.year);
+console.log(book);
 
-// Чтобы изменить значения в книге, можно обращаться к объекту и ключу, значение которого нужно изменить.
-// Чтобы получить новое значение можно использовать деструктуризацию, либо можно обратиться к объекту и ключу, значение которого нужно получить
+// Чтобы изменить значения в книге, создаю функцию внутри объекта, которая принимает новое значение, обращается к необходимому ключу
+// через this и присваивает новое значение. Чтобы получить новое значение можно использовать деструктуризацию.
 

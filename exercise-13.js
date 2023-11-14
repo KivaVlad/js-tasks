@@ -59,6 +59,7 @@ class Rectangle extends Shape {
    }
 }
  
+
 // Круг
 const circleEl = new Circle(50);
 console.log(circleEl.getArea());

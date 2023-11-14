@@ -2,23 +2,20 @@
 // Внутренняя функция должна иметь доступ к переменной, определенной во внешней функции, даже после того, 
 // как внешняя функция завершила свое выполнение
 
-// Пример 1
-function outer() {
-    let counter = 0;
+function counter() {
+    let x = 0;
 
     function incrementCounter() {
-        return counter += 1;
+        return x += 1;
     }
 
     return incrementCounter
 }
 
-// Функция outer возвращает функцию incrementCounter, которая увеличивает переменную counter, 
-// из области видимости outer, на 1 при каждом ее вызове.
-// В принципе это и есть основной принцип замыкания: функция, которая возвращается из функции; возвращаемая функция запоминает 
-// область видимости всех переменных вокруг себя
+// Функция counter возвращает функцию incrementCounter, которая увеличивает переменную x, 
+// из области видимости counter, на 1 при каждом ее вызове и сохраняет значение в памяти.
 
-const myCounter = outer();
+const myCounter = counter();
 console.log(myCounter()); // 1
 console.log(myCounter()); // 2
 console.log(myCounter()); // 3

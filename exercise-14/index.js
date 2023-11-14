@@ -5,9 +5,9 @@
 
 const imageContainer = document.querySelector('.image-container');
 const button = document.getElementById('button');
-const url = 'https://nft-arty.com/wp-content/uploads/2021/10/trbmxfykze8.jpg';
+const url = 'https://www.cyberark.com/wp-content/uploads/2019/11/Developer.jpg';
 
-function loadImage(url) {
+function getImage(url) {
     return new Promise((resolve, reject) => {
         const image = new Image();
         image.src = url;
@@ -16,8 +16,10 @@ function loadImage(url) {
             resolve({
                 width: image.width,
                 height: image.height,
-                src: image.src
+                src: image.src,
+                image: image
             })
+            
             imageContainer.innerHTML = `<img class="image" src="${image.src}" />`;
         }
 
@@ -27,13 +29,13 @@ function loadImage(url) {
     });
 }
 
-function onSubmit() {
-    loadImage(url)
+function loadImage() {
+    getImage(url)
     .then((image) => console.log('Изображение загружено', image))
     .catch((error) => alert(error))
 }
 
-button.addEventListener('click', onSubmit);
+button.addEventListener('click', loadImage);
 
 
 // Функция loadImage принимает URL изображения и возвращает промис. 
