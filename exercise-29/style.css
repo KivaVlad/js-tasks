@@ -1,0 +1,74 @@
+* {
+    box-sizing: border-box;
+	padding: 0px;
+	margin: 0px;
+	border: none;
+}
+
+input:focus, input:active,
+button:focus, button:active {
+    outline: none;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #1E2A47;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 20px;
+    width: 100%;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px 30px;
+    width: 400px;
+    border: 1px solid #FFFFFF;
+    border-radius: 10px;
+}
+
+.input-container {
+    display: flex;
+    width: 100%;
+    height: 40px;
+    border: 1px solid #FFFFFF;
+    border-radius: 10px;
+}
+
+.input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 0 10px;
+    color: #FFFFFF;
+    background-color: transparent;
+}
+
+#button {
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+#button:active {
+    transform: scale(0.95);
+}

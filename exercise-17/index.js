@@ -5,9 +5,10 @@
 const API_BASE_URL = 'https://geocode-maps.yandex.ru';
 const API_KEY = '9f954565-93f9-4634-a2c7-9200149b9854';
 const input = document.getElementById('input');
+const clearIcon = document.getElementById('clear-icon');
 const listContainer = document.querySelector('.search-list-container');
 const resultList = document.querySelector('.search-list');
-let resultArr = [];
+let resultsArr = [];
 
 // Выводим данные инпута
 function printInput() {
@@ -24,12 +25,12 @@ async function getLocation() {
 // Обрабатываем ответ
 function onSubmit() {
     if (input.value.trim()) {
-        openList();
         getLocation()
         .then((response) => {
-            resultArr = [];
-            resultArr.push(response.response.GeoObjectCollection.featureMember);
-            resultArr.forEach((results) => printAddress(results))
+            openList();
+            resultsArr = [];
+            resultsArr.push(response.response.GeoObjectCollection.featureMember);
+            resultsArr.forEach((results) => printAddress(results));
         })
         .catch(error => console.log(error))
     } else {
@@ -82,14 +83,24 @@ function openList() {
     listContainer.classList.remove('hidden');
 }
 
+// Очищаем input и список
+function clearInput() {
+    input.value = '';
+    resultList.innerHTML = '';
+    clearIcon.classList.add('hidden');
+    closeList();
+}
+
+
 // Создаем имитацию задержки при вызове функции отправки запроса
 const debounceAddress = debounce(onSubmit, 400);
-
 // При вводе данных в input очищаем список и вызываем функцию для получения данных 
 input.addEventListener('input', () => {
+    clearIcon.classList.remove('hidden');
     removeList();
     debounceAddress();
 });
-
 // При клике на input открываем список, если поле ввода не пустое
 input.onclick = () => input.value.trim() && openList();
+// При клике на крестик очищием input
+clearIcon.addEventListener('click', clearInput);
