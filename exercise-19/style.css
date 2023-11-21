@@ -1,0 +1,146 @@
+* {
+    box-sizing: border-box;
+	padding: 0px;
+	margin: 0px;
+	border: none;
+}
+
+input:focus, input:active,
+button:focus, button:active {
+    outline: none;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #131313;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.container_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+    gap: 20px;
+}
+
+.title {
+    font-size: 26px;
+    font-weight: 600;
+    color: #FFFFFF;
+}
+
+.widget_container {
+    width: 600px;
+    height: 600px;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+    overflow: auto;
+}
+
+.widget_content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.post-container {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid gray;
+}
+
+.post_date {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.post_text {
+    text-wrap: wrap;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 14px;
+    height: 84px;
+    margin-top: 12px;
+    overflow: hidden;
+}
+
+.images_container {
+    width: 520px;
+    height: auto;
+    overflow: hidden;
+}
+
+.images_container > img {
+    width: 100%;
+    height: auto;
+}
+
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.left-icons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    gap: 4px;
+    padding: 4px 12px;
+    margin-top: 12px;
+    background-color: rgb(186, 186, 186);
+}
+
+.icon-wrapper > img {
+    width: 20px;
+    height: 20px;
+}
+
+.icon-wrapper > span {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.views-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#button {
+    padding: 4px 16px;
+    border-radius: 10px;
+    background-color: rgb(176, 176, 176);
+    cursor: pointer;
+}
