@@ -1,15 +1,9 @@
-const widget = document.getElementById('widget');
-const button = document.getElementById('button');
-
-const API_TOKEN = ''; // в целях безопасности не стал добавлять токен
+const API_TOKEN = '61823ac261823ac261823ac2f66294344a6618261823ac204b4b8fa744c39a26db4e8e0';
 const domain = 'https://vk.com/js_hub';
 const pageId = 73928914;
-
+const count = 10;
 let offset = 0;
-let count = 10;
 let posts = [];
-
-button.style.display = 'none';
 
 // Функция создания скрипта и отправки запроса
 function getVKPosts(offset) {
@@ -23,14 +17,15 @@ getVKPosts(offset);
 // Функция получения постов
 function callbackFunc(result) {
     if (result.response) {
-        button.style.display = 'block';
         localStorage.setItem('posts', JSON.stringify([...result.response.items]));
-        if (localStorage.getItem('posts') !== null) posts = [...JSON.parse(localStorage.getItem('posts'))];
-        posts.forEach((item) => createPostCard(item));
-        
     } else if (result.error) {
         alert(result.error.error_msg);
         console.log(result.error);
+    }
+
+    if (localStorage.getItem('posts') !== null) {
+        posts = [...JSON.parse(localStorage.getItem('posts'))];
+        posts.forEach((post) => createPostCard(post));
     }
 }
 
@@ -41,7 +36,7 @@ function createPostCard(post) {
     const postImg = post?.attachments[0].type === "photo" ? post?.attachments[0].photo.sizes : {};
     const postImgUrl = postImg?.length ? postImg[postImg.length - 1].url : '';
 
-    const postDate = new Date(post?.date * 1000) || '';
+    const postDate = new Date(post?.date * 1000);
     const day = postDate.getDate();
     const month = postDate.getMonth() + 1;
     const year = postDate.getFullYear() % 100;
@@ -82,15 +77,24 @@ function createPostCard(post) {
     `;
 }
 
-// При скролле до конца подгружаем посты
-widget.addEventListener('scroll', () => {
-    if (Math.ceil(widget.scrollHeight - widget.scrollTop) == widget.clientHeight) {
-        offset += count;
-        getVKPosts(offset);
-    }
-})
+// Имитируем задержку при подгрузке постов
+function debounce(func, delay) {
+    let timer;
 
-button.addEventListener('click', () => {
-    offset += count;
-    getVKPosts(offset);
+    return function() {
+        clearTimeout(timer);
+        timer = setTimeout(func, delay);
+    }
+}
+
+// При скролле до конца подгружаем посты
+const widget = document.getElementById('widget');
+widget.addEventListener('scroll', () => {
+    let bottom = widget.scrollHeight - widget.clientHeight;
+    let position = widget.scrollTop;
+
+    if (Math.ceil(position) >= bottom || Math.floor(position) >= bottom) {
+        offset += count;
+        debounce(getVKPosts(offset), 300);
+    }
 })

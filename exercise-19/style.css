@@ -130,17 +130,3 @@ body {
     justify-content: center;
     gap: 6px;
 }
-
-.button-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-#button {
-    padding: 4px 16px;
-    border-radius: 10px;
-    background-color: rgb(176, 176, 176);
-    cursor: pointer;
-}
