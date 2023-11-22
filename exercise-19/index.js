@@ -40,7 +40,6 @@ function createPostCard(post) {
     const day = postDate.getDate();
     const month = postDate.getMonth() + 1;
     const year = postDate.getFullYear() % 100;
-  
     const formattedDay = day < 10 ? `0${day}` : day;
     const formattedMonth = month < 10 ? `0${month}` : month;
     const formattedYear = year < 10 ? `0${year}` : year;
