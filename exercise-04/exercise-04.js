@@ -1,11 +1,3 @@
-// Разработать функцию, изменяющую окончание слов в зависимости от падежа. Например:
-// - 112 сообщения
-// - 12 сообщений
-// - 1 сообщение
-// - 1024 пользователя
-// - 1026 пользователей
-// - 121 пользователь
-
 function transformWords(num, words) {  
 	let n = num % 10;
 
@@ -37,4 +29,4 @@ console.log(transformWords(12, messages)); // 12 сообщений
 console.log(transformWords(1, messages)); // 1 сообщение
 console.log(transformWords(1024, users)); // 1024 пользователя
 console.log(transformWords(1026, users)); // 1026 пользователей
-console.log(transformWords(121,users)); // 121 пользователь
+console.log(transformWords(121, users)); // 121 пользователь

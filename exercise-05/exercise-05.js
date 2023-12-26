@@ -1,6 +1,3 @@
-// Разработайте функцию преобразования JSON в связный список. 
-// На входе функция должна получать JSON, содержащий список объектов, на выходе объект, представляющий из себя односвязный список.
-
 // имитация json
 const json = JSON.stringify([{name: "John", age: 25, city: "New York"}, {name: "Jane", age: 30, city: "Los Angeles"}, {name: "Jack", age: 40, city: "San Francisco"}]);
 

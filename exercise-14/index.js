@@ -1,8 +1,3 @@
-// Задача на промисы: напишите функцию, которая принимает URL изображения и возвращает промис, 
-// который разрешается с данными об изображении, когда оно загружено. Когда говорится "промис разрешается с данными об изображении", 
-// это означает, что промис должен быть успешно выполнен (resolved) с данными об изображении после того, как изображение будет загружено.
-
-
 const imageContainer = document.querySelector('.image-container');
 const button = document.getElementById('button');
 const url = 'https://www.cyberark.com/wp-content/uploads/2019/11/Developer.jpg';

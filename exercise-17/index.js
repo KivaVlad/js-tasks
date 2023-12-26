@@ -1,13 +1,10 @@
-// Необходимо реализовать простое поле ввода адреса с функцией геокодинга: пользователь вводит данные в поле с 
-// помощью одного из геоинформационных сервисов (Яндекс.Карты, ДаДата, GraphHopper), подбирается адрес. 
-// Найденные данные должны отображаться в выпадающем списке, из которого можно выбрать подходящее значение.
-
 const API_BASE_URL = 'https://geocode-maps.yandex.ru';
 const API_KEY = '9f954565-93f9-4634-a2c7-9200149b9854';
 const input = document.getElementById('input');
 const clearIcon = document.getElementById('clear-icon');
 const listContainer = document.querySelector('.search-list-container');
 const resultList = document.querySelector('.search-list');
+
 let resultsArr = [];
 
 // Выводим данные инпута
